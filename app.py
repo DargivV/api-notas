@@ -2,6 +2,9 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
+import os
+
+
 app = Flask(__name__)
 CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sql3784159:KAFJiwhDdL@sql3.freesqldatabase.com:3306/sql3784159' #esta vaina tiene una estructura , no me acuerdo cual 
@@ -94,5 +97,5 @@ def registrar_nota():
 
 
 if __name__ == '__main__':
-    
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)

@@ -95,6 +95,11 @@ def registrar_nota():
     db.session.commit()
     return jsonify({"mensaje": "Nota registrada"})
 
+@app.route('/')
+def index():
+    return 'API de Notas activa desde Render 🎉'
+
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
